@@ -1,0 +1,173 @@
+/*IMPORTA A FONTE*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*RESET CSS E ESTILO GLOBAL*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/*COR DE FUNDO DA PÁGINA*/
+body {
+    background-color: #670f93;
+}
+
+/*CAIXA PRINCIPAL CENTRALIZADA*/
+.boxprincipal {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+
+/*ESTILO DO BOTÃO*/
+label {
+    position: relative;
+    background: #fff;
+    height: 50px;
+    width: 150px;
+    border-radius: 35px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    /* Exibe como bloco */
+    display: block;
+
+    color: #670f93;
+
+    /* Cursor muda ao passar por cima */
+    cursor: pointer;
+
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/*EFEITO AO PASSAR O MOUSE SOBRE O BOTÃO*/
+label:hover {
+
+    /*aumenta o espaçamento entre letras */
+    letter-spacing: 1px;
+}
+
+/*PSEUDO-ELEMENTO PARA MUDAR O BOTÃO QUANDO CLICAR*/
+label::before {
+
+    /* Texto a ser exibido */
+    content: "Cancelar";
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 35px;
+
+    /* Inicialmente invisível */
+    opacity: 0;
+}
+
+/*ESCONDE O CHECKBOX PADRÃO DO INPUT*/
+#check {
+    display: none;
+}
+
+/*EXIBE O PSEUDO-ELEMENTO QUANDO O INPUT É MARCADO (AO CLICAR NO BOTÃO)*/
+#check:checked~label::before {
+    opacity: 1;
+}
+
+/*CAIXA DE ÍCONES, INICIALMENTE INVISIVEL*/
+.icones {
+    position: absolute;
+    left: 50%;
+    top: -120px;
+    transform: translateX(-50%);
+    background-color: #fff;
+    width: 140%;
+    height: 110%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    /* Distribui espaço entre os ícones */
+    justify-content: space-evenly;
+
+    border-radius: 35px;
+    padding: 4px;
+
+    /* Fica acima de outros elementos */
+    z-index: 1;
+
+    /* Inicialmente invisível */
+    opacity: 0;
+
+    /* Não permite interação */
+    pointer-events: none;
+
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/*QUANDO CLICADO, A CAIXA DE ICONES APARECE*/
+#check:checked~.icones {
+    opacity: 1;
+
+    /* Permite interação com ícones */
+    pointer-events: auto;
+
+    /* Ajusta a posição vertical */
+    top: -84px;
+}
+
+/*TRIÂNGULO ABAIXO DA CAIXA*/
+.icones::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 50%;
+    background-color: #fff;
+    bottom: -9px;
+
+    /* Rotaciona para formar triângulo */
+    transform: translateX(-50%) rotate(45deg);
+
+    /* Fica atrás da caixa */
+    z-index: -1;
+}
+
+/*ESTILO DOS LINKS (ICONES)*/
+.icones a {
+    font-size: 22px;
+    color: #670f93;
+    transition: all 0.3s ease;
+}
+
+/*EFEITO NOS ICONES (SOBE UM POUCO AO PASSAR O MOUSE)*/
+.icones a:hover {
+    transform: translateY(-2px);
+}
+
+/*MUDANÇA DE COR INDIVIDUAL DOS ICONES AO PASSAR O MOUSE:*/
+
+.icones a:nth-child(1):hover {
+    color: #2830c9;
+}
+
+.icones a:nth-child(2):hover {
+    color: #82888c;
+}
+
+.icones a:nth-child(3):hover {
+    color: #1c097d;
+}
+
+.icones a:nth-child(4):hover {
+    color: #ff0000;
+}
